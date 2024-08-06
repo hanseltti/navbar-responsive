@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar Template</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      nav {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2b5df5;
+        color: white;
+        z-index: 9;
+      }
+
+      .businnes__name {
+        padding: 1rem;
+        border: 2px solid #2b5df5;
+        flex-basis: 200px;
+        z-index: 8;
+      }
+
+      .businnes__name > a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .nav__links__a a {
+        margin-right: 1rem;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        color: white;
+        transition: 0.2s;
+      }
+
+      .nav__links__a a:hover {
+        color: #ffce00;
+      }
+
+      .nav__cta__btn {
+        background-color: #ffe000;
+        color: black !important;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem !important;
+        transition: 0.2s;
+      }
+
+      .nav__cta__btn:hover {
+        background-color: #ffce00;
+      }
+
+      .nav__menu__bars {
+        display: none;
+      }
+
+      @media (width < 876px) {
+        .nav__links__a {
+          position: absolute;
+          overflow: hidden;
+          width: 0;
+          height: 100vh;
+          top: 0px;
+          right: 0;
+          background-color: #2b5df5;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transition: 0.3s;
+          z-index: 7;
+        }
+
+        .show__nav__menu {
+          position: absolute;
+          width: 100%;
+          height: 100vh;
+          top: 0px;
+          right: 0;
+          background-color: #2b5df5;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          z-index: 7;
+        }
+
+        .nav__menu__bars {
+          display: block;
+          color: #fff;
+          margin-right: 1rem;
+          cursor: pointer;
+          z-index: 7;
+        }
+
+        .nav__cta__btn {
+          display: flex;
+          margin-top: 2rem;
+          padding: 0.5rem 3rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <section class="businnes__name">
+        <a href="#"><h1>Business Name</h1></a>
+      </section>
+      <section class="nav__links__a">
+        <a href="#" class="nav__link">Home</a>
+        <a href="#" class="nav__link">About</a>
+        <a href="#" class="nav__link">Services</a>
+        <a href="#" class="nav__link">Q&A</a>
+        <a href="#" class="nav__link">Contact</a>
+        <a href="tel:123 123 1234" class="nav__cta__btn">Call Us</a>
+      </section>
+
+      <section class="nav__menu__bars">
+        <i class="fa-solid fa-bars"></i>
+      </section>
+    </nav>
+
+    <script>
+      let menu = document.querySelector(".nav__menu__bars");
+      let navLinks = document.querySelector(".nav__links__a");
+      let navLink = document.getElementsByClassName("nav__link");
+
+      menu.addEventListener("click", () => {
+        navLinks.classList.toggle("show__nav__menu");
+      });
+
+      for (let i = 0; i < navLink.length; i++) {
+        navLink[i].addEventListener("click", () => {
+          navLinks.classList.remove("show__nav__menu");
+        });
+      }
+    </script>
+  </body>
+</html>
